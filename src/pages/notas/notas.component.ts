@@ -22,9 +22,9 @@ export class NotasComponent implements OnInit {
 
 
   irAgregarNota(nota:Nota,idx:number){
-  //   this.navCtrl.push(AgregarNotaComponent,{
-  //     nota:nota,
-  //     idx:idx
-  //   });
+    this.navCtrl.push(AgregarNotaComponent,{
+      nota:nota,
+      idx:idx
+    });
    }
 }
