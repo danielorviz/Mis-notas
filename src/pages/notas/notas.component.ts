@@ -26,5 +26,5 @@ export class NotasComponent implements OnInit {
   //     nota:nota,
   //     idx:idx
   //   });
-  // }
+   }
 }
