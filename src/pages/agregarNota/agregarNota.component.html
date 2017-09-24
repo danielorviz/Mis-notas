@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar color="primary">
+
+
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+
+    <ion-title>
+      Agregar nota
+    </ion-title>
+
+    <ion-buttons end>
+
+      <button  icon-only ion-button name="button">
+        <ion-icon ios="ios-add" md="md-add"></ion-icon>
+      </button>
+
+    </ion-buttons>
+  </ion-navbar>
+
+
+</ion-header>
+<ion-content>
+  <ion-item>
+    <ion-label stacked>Titulo</ion-label>
+    <ion-input [(ngModel)]="tituloNota" type="text"></ion-input>
+  </ion-item>
+
+  <textarea [(ngModel)]="textoNota"(keypress)="guardar(tituloNota,textoNota)" name="textoNuevaNota" ></textarea>
+
+
+
+</ion-content>

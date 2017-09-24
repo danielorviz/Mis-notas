@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Mis notas</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+  <ion-card-header>
+    Header
+  </ion-card-header>
+  <ion-card-content>
+    The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
+  </ion-card-content>
+</ion-card>
+
+<ion-fab right bottom>
+    <button ion-fab color="primary" >
+       <ion-icon ios="ios-add" md="md-add"></ion-icon>
+
+    </button>
+
+    <ion-fab-list side="top">
+         <button ion-fab color="secondary" (click)="irAgregarNota()">
+           <ion-icon ios="ios-add" md="md-add"></ion-icon>
+         </button>
+         <button ion-fab color="danger" >
+           <ion-icon ios="ios-create" md="md-create"></ion-icon>
+         </button>
+
+       </ion-fab-list>
+
+  </ion-fab>
+
+
+</ion-content>
