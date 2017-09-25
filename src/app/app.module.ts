@@ -25,6 +25,7 @@ import {NotasComponent} from '../pages/notas/notas.component';
 import {AgregarComponent} from '../pages/agregar/agregar.component';
 import {DetalleComponent} from '../pages/detalle/detalle.component';
 import {AgregarNotaComponent} from '../pages/agregarNota/agregarNota.component';
+import {DetalleNotaComponent} from '../pages/detalleNota/detalleNota.component';
 //------------------------
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {AgregarNotaComponent} from '../pages/agregarNota/agregarNota.component';
     NotasComponent,
     AgregarComponent,
     DetalleComponent,
-    AgregarNotaComponent
+    AgregarNotaComponent,
+    DetalleNotaComponent
 
   ],
   imports: [
@@ -52,7 +54,8 @@ import {AgregarNotaComponent} from '../pages/agregarNota/agregarNota.component';
     NotasComponent,
     AgregarComponent,
     DetalleComponent,
-    AgregarNotaComponent
+    AgregarNotaComponent,
+    DetalleNotaComponent
   ],
   providers: [
     StatusBar,

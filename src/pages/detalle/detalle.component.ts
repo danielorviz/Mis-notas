@@ -12,6 +12,7 @@ export class DetalleComponent implements OnInit {
   lista:Lista;
   mostrar:boolean;
   mostrarEditar:boolean;
+  nombreItem:string="";
 
   constructor(public navCtrl:NavController,
               public navParams:NavParams,
@@ -21,6 +22,7 @@ export class DetalleComponent implements OnInit {
     //  console.log(this.navParams);
      this.idx=navParams.get("idx");
      this.lista=navParams.get("lista");
+
    }
 
   ngOnInit() {}
@@ -69,9 +71,14 @@ export class DetalleComponent implements OnInit {
     this._listaDeseos.actualizarData();
   }
 
-  agregarItemALista(lista:Lista,nombre:string){
-    lista.items.push(new ListaItem(nombre));
-    this.mostrar=false;
+  agregarItemALista(){
+    if(this.nombreItem.length>0){
+      this.lista.items.push(new ListaItem(this.nombreItem));
+      this.mostrar=false;
+      this.nombreItem="";
+      this._listaDeseos.actualizarData();
+    }
+    
 
   }
   cambiarEstado(){

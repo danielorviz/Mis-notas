@@ -5,14 +5,19 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card>
-  <ion-card-header>
-    Header
-  </ion-card-header>
-  <ion-card-content>
-    The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
-  </ion-card-content>
+
+
+<ion-card *ngFor="let nota of _listaDeseos.notas">
+  <ion-item color="light" >
+    <h2>{{nota.titulo}}</h2>
+
+  </ion-item>
+    <ion-card-content>
+      {{nota.contenido}}
+    </ion-card-content>
 </ion-card>
+
+
 
 <ion-fab right bottom>
     <button ion-fab color="primary" >

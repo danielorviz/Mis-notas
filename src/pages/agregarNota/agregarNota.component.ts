@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Platform,NavController,NavParams} from 'ionic-angular';
+import {AlertController,Platform,NavController,NavParams} from 'ionic-angular';
 import { ListaDeseosService } from '../../app/services/lista-deseos.service';
 import {Nota} from '../../app/clases/index';
 
@@ -11,11 +11,15 @@ import {Nota} from '../../app/clases/index';
 export class AgregarNotaComponent implements OnInit {
   nota:Nota;
   idx:number;
+  tituloNota:string="";
+  textoNota:string="";
+  textoAgregado:boolean=false;
 
   constructor(private platform:Platform,
   private _listaDeseos:ListaDeseosService,
     public navCrl:NavController,
-  public navParams:NavParams) {
+  public navParams:NavParams,
+  public alertCtrl:AlertController) {
     this.nota=navParams.get("nota");
     this.idx=navParams.get("idx");
    }
@@ -27,14 +31,21 @@ export class AgregarNotaComponent implements OnInit {
 
 
 guardarNota(){
-
+  if(this.tituloNota.length == 0 && this.textoNota.length==0){
+    let alert = this.alertCtrl.create({
+      title: 'Nota vacia',
+      subTitle: 'El titulo o texto de la nota es necesario',
+      buttons: ['Aceptar']
+    });
+    alert.present();
+    return;
+  }
+this._listaDeseos.agregarNota(new Nota(this.tituloNota,this.textoNota));
+this.navCrl.pop();
 }
-guardar(titulo:string,texto:string){
-  // if(this.nota==null){
-  //   this.nota = new Nota();
-  // }
-  console.log(titulo);
-  console.log(texto);
+activarAgregar(){
+  this.textoAgregado=true;
+
 }
 
 }
