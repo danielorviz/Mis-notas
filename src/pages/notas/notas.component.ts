@@ -4,6 +4,7 @@ import {Nota} from '../../app/clases/index';
 
 
 import {AgregarNotaComponent} from '../agregarNota/agregarNota.component';
+import {DetalleNotaComponent} from '../detalleNota/detalleNota.component';
 import {ListaDeseosService} from '../../app/services/lista-deseos.service';
 
 
@@ -15,19 +16,22 @@ export class NotasComponent implements OnInit {
 
 
   constructor(private _listaDeseos: ListaDeseosService,
-    private navCtrl:NavController) {
+    public navCtrl:NavController) {
 
      }
 
   ngOnInit() {}
 
   irDetalleNota(nota:Nota,idx:number){
-    this.navCtrl.push(AgregarNotaComponent,{
+    console.log(nota.titulo);
+    this.navCtrl.push(DetalleNotaComponent,{
       nota:nota,
       idx:idx
-    });
+    })
    }
-
+irAgregarNota(){
+    this.navCtrl.push(AgregarNotaComponent);
+}
 
 
 

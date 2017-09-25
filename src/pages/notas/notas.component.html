@@ -7,14 +7,14 @@
 <ion-content padding>
 
 
-<ion-card *ngFor="let nota of _listaDeseos.notas">
-  <ion-item color="light" >
+<ion-card *ngFor="let nota of _listaDeseos.notas;let i =index;" >
+  <ion-item color="light" (click)="irDetalleNota(nota,i)">
     <h2>{{nota.titulo}}</h2>
 
-  </ion-item>
-    <ion-card-content>
+  </ion-item >
+    <ion-item >
       {{nota.contenido}}
-    </ion-card-content>
+    </ion-item>
 </ion-card>
 
 
