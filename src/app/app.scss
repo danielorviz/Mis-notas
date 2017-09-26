@@ -42,7 +42,12 @@
 }
 .textAreaNota{
   width: 100%;
-  height: 80%;
+  height: 90%;
+  resize: none;
+  list-style: none;
+  border:none;
+}
+.textAreaNotaFuera{
   resize: none;
   list-style: none;
   border:none;

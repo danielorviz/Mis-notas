@@ -34,9 +34,10 @@ export class ListadoComponent implements OnInit {
   mas(lista:Lista){
     lista.vistaPreviaCompleta=!lista.vistaPreviaCompleta;
 
+
   }
   numElementos(lista:Lista):number{
-    return lista.vistaPreviaCompleta?lista.items.length:2;
+    return lista.vistaPreviaCompleta?2:lista.items.length;
   }
 
   borrarLista(idx:number) {

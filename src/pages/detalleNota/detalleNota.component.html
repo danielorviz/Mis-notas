@@ -1,24 +1,32 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>{{nota.titulo}}</ion-title>
+
+    <ion-buttons start>
+      <button *ngIf="textoAgregado"
+       ion-button
+        (click)="guardarNota()">
+        <ion-icon style="font-size:30px;" ios="ios-add" md="md-add"></ion-icon>
+        </button>
+   </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-item>
     <ion-label stacked>Titulo</ion-label>
-    <ion-input type="text">{{nota.titulo}}</ion-input>
+    <ion-input (keydown)="activarBoton()" [(ngModel)]="tituloNota" type="text"></ion-input>
   </ion-item>
 
-  <textarea value="{{nota.contenido}}" class="textAreaNota"  name="textoNuevaNota" >
-{{nota.contenido}}
+  <textarea  [(ngModel)]="textoNota"(keydown)="activarBoton()" class="textAreaNota"  name="textoNuevaNota" >
+
   </textarea>
-  <button *ngIf="textoAgregado"style="width:50%;margin:0 auto;"
+  <!-- <button *ngIf="textoAgregado"style="width:50%;margin:0 auto;"
    ion-button icon-left class="button-block"type="button"
     name="button"
     (click)="guardarNota()">
     <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
-    Agregar Nota</button>
+    Guardar Nota</button> -->
 
 
 

@@ -3,9 +3,14 @@
 
 
 
-    <button ion-button icon-only menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+    <ion-buttons start>
+      <button *ngIf="textoAgregado"
+       ion-button
+        (click)="guardarNota()">
+        <ion-icon style="font-size:30px;" ios="ios-add" md="md-add"></ion-icon>
+        </button>
+   </ion-buttons>
+
 
 
     <ion-title>
@@ -27,12 +32,7 @@
   </ion-item>
 
   <textarea class="textAreaNota" [(ngModel)]="textoNota"(keydown)="activarAgregar()" name="textoNuevaNota" ></textarea>
-  <button *ngIf="textoAgregado"style="width:50%;margin:0 auto;"
-   ion-button icon-left class="button-block"type="button"
-    name="button"
-    (click)="guardarNota()">
-    <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
-    Agregar Nota</button>
+
 
 
 

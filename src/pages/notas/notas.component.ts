@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NavController} from 'ionic-angular'
+import {NavController,AlertController} from 'ionic-angular'
 import {Nota} from '../../app/clases/index';
 
 
@@ -14,9 +14,10 @@ import {ListaDeseosService} from '../../app/services/lista-deseos.service';
 })
 export class NotasComponent implements OnInit {
 
+  mostrarEditar:boolean=false;
 
   constructor(private _listaDeseos: ListaDeseosService,
-    public navCtrl:NavController) {
+    public navCtrl:NavController, public alertCtrl:AlertController) {
 
      }
 
@@ -32,7 +33,26 @@ export class NotasComponent implements OnInit {
 irAgregarNota(){
     this.navCtrl.push(AgregarNotaComponent);
 }
+borrarNota(idx:number){
+  let confirm = this.alertCtrl.create({
+    title: 'Borrar Nota',
+    message: '¿Seguro que desea eliminar la nota?',
+    buttons: ['Cancelar',
+      {
+        text: 'Borrar',
+        handler: () => {
+          this._listaDeseos.notas.splice(idx,1);
+          this._listaDeseos.actualizarData();
 
+        }
+      }
+    ]
+  });
+  confirm.present();
 
+}
+cambiarEditar(){
+  this.mostrarEditar=!this.mostrarEditar;
+}
 
 }

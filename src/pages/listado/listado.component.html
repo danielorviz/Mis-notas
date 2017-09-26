@@ -39,11 +39,11 @@
       </ion-item>
 
 
-    <ion-item class="text-center" *ngIf="lista.items.length >2 && !lista.vistaPreviaCompleta">
+    <ion-item class="text-center" *ngIf="lista.items.length >2 && lista.vistaPreviaCompleta">
       <ion-icon (click)="mas(lista)" color="primary" ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
     </ion-item>
 
-    <ion-item class="text-center" *ngIf="lista.items.length >2 && lista.vistaPreviaCompleta">
+    <ion-item class="text-center" *ngIf="lista.items.length >2 && !lista.vistaPreviaCompleta">
       <ion-icon (click)="mas(lista)" color="primary" ios="ios-arrow-dropup" md="md-arrow-dropup"></ion-icon>
     </ion-item>
 
