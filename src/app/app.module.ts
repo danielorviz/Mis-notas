@@ -26,6 +26,7 @@ import {AgregarComponent} from '../pages/agregar/agregar.component';
 import {DetalleComponent} from '../pages/detalle/detalle.component';
 import {AgregarNotaComponent} from '../pages/agregarNota/agregarNota.component';
 import {DetalleNotaComponent} from '../pages/detalleNota/detalleNota.component';
+import {OpcionesGeneralComponent} from '../pages/opcionesGeneral/opcionesGeneral.component';
 //------------------------
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {DetalleNotaComponent} from '../pages/detalleNota/detalleNota.component';
     AgregarComponent,
     DetalleComponent,
     AgregarNotaComponent,
-    DetalleNotaComponent
+    DetalleNotaComponent,
+    OpcionesGeneralComponent
 
   ],
   imports: [
@@ -55,7 +57,8 @@ import {DetalleNotaComponent} from '../pages/detalleNota/detalleNota.component';
     AgregarComponent,
     DetalleComponent,
     AgregarNotaComponent,
-    DetalleNotaComponent
+    DetalleNotaComponent,
+    OpcionesGeneralComponent
   ],
   providers: [
     StatusBar,

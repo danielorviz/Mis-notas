@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ListaDeseosService} from '../../app/services/lista-deseos.service';
 import {AgregarComponent} from '../agregar/agregar.component';
+import {OpcionesGeneralComponent} from '../opcionesGeneral/opcionesGeneral.component';
 import {NavController,AlertController} from 'ionic-angular'
 import {DetalleComponent} from '../detalle/detalle.component';
 import {Lista} from '../../app/clases/index';
@@ -12,6 +13,9 @@ import {Lista} from '../../app/clases/index';
 export class ListadoComponent implements OnInit {
 
   mostrarEditar:boolean;
+  color:string="primary";
+  colorFondo:string="skyBlue";
+  buscar:boolean=false; // Activar o desactivar barra de buscar
 
   constructor(private _listaDeseos: ListaDeseosService,
     private navCtrl:NavController,
@@ -20,6 +24,9 @@ export class ListadoComponent implements OnInit {
   ngOnInit() {}
 
 
+  getColor(){
+    return this.color;
+  }
 
   irAgregar(){
     this.navCtrl.push(AgregarComponent);
@@ -61,6 +68,13 @@ export class ListadoComponent implements OnInit {
 
   cambiarMostrarEditar(){
     this.mostrarEditar=!this.mostrarEditar;
+
+  }
+  cambiarBuscar(){
+    this.buscar=!this.buscar;
   }
 
+irAOpciones(){
+  this.navCtrl.push(OpcionesGeneralComponent);
+}
 }
