@@ -1,39 +1,40 @@
 import { Injectable } from '@angular/core';
-import {Lista,Nota,ColoresConfig} from '../clases/index';
+import {Lista,Nota} from '../clases/index';
 import { Storage } from '@ionic/storage';
 
 @Injectable()
 export class ListaDeseosService {
   listas: Lista[] =[];
   notas:Nota[]=[];
-  colores:ColoresConfig;
+  colores={
+    colorNavbars:"primary",
+    colorFondo:"fondo"
+  }
 
   constructor( private storage:Storage) {
-    this.colores=new ColoresConfig();
+
+    this.cargarColores();
     this.cargarData();
-    // let lista1:Lista = new Lista('Compras de supermercado');
-    // let lista2:Lista = new Lista('Juegos que deseo');
-    // let lista3:Lista = new Lista('cosas de la universidad');
-    //
-    // this.listas.push(lista1);
-    // this.listas.push(lista2);
-    // this.listas.push(lista3);
-    //console.log("Servicio inicializado")
    }
 
   actualizarData(){
-    //localStorage.setItem("data",JSON.stringify(this.listas));
     this.storage.set('listas',this.listas);
     this.storage.set('notas',this.notas);
 
+
+  }
+  actualizarColores(){
+      this.storage.set('color',this.colores);
+  }
+  cargarColores(){
+    this.storage.get('color').then((colors) =>{
+      if(colors !=null){
+        this.colores=colors;
+      }
+    });
   }
 
   cargarData(){
-    // if(localStorage.getItem("data")!=null){
-    //   this.listas= JSON.parse(localStorage.getItem("data"));
-    // }
-
-
     this.storage.get('listas').then((val) => {
       if(val !=null){
         this.listas=val;
@@ -46,6 +47,7 @@ export class ListaDeseosService {
       this.notas=notes;
     }
   });
+
 
   }
 

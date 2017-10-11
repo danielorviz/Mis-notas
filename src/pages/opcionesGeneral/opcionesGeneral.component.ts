@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NavParams,NavController} from 'ionic-angular';
+import {NavController} from 'ionic-angular';
 import {ListaDeseosService} from '../../app/services/lista-deseos.service';
 
 @Component({
@@ -9,7 +9,7 @@ import {ListaDeseosService} from '../../app/services/lista-deseos.service';
 export class OpcionesGeneralComponent implements OnInit {
   colorNav:string="";
   constructor(private _listaDeseos:ListaDeseosService, public navCtrl:NavController) {
-    this.colorNav=this._listaDeseos.colores.getColorNavbars();
+    this.colorNav=this._listaDeseos.colores.colorNavbars;
    }
 
   ngOnInit() {}
@@ -19,7 +19,8 @@ export class OpcionesGeneralComponent implements OnInit {
   }
 
   guardar(){
-    this._listaDeseos.colores.setColorNavbars(this.colorNav);
+    this._listaDeseos.colores.colorNavbars=this.colorNav;
+    this._listaDeseos.actualizarColores();
     this.navCtrl.pop();
 
   }

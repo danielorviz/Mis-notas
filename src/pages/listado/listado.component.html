@@ -1,7 +1,7 @@
 
 
 <ion-header>
-  <ion-navbar color={{_listaDeseos.colores.getColorNavbars()}}>
+  <ion-navbar color={{_listaDeseos.colores.colorNavbars}}>
     <ion-title>Mis listas</ion-title>
 
     <ion-buttons end>
@@ -21,7 +21,7 @@
 
 </ion-header>
 
-<ion-content style="background:#87CEEB" padding>
+<ion-content [ngClass]="{'fondo': _listaDeseos.colores.colorFondo==fondo}" padding>
 
   <!-- Barra para buscar -->
   <ion-toolbar *ngIf="buscar"color="skyBlue">
@@ -42,7 +42,7 @@
 </ion-grid>
 
 <ion-card  *ngFor="let lista of _listaDeseos.listas ;let i = index;"  >
-  <ion-item color="light" (click)="verDetalle(lista,i)">
+  <ion-item class="elemento" color="light" (click)="verDetalle(lista,i)">
       <h2>{{lista.nombre}}</h2>
 
       <ion-note item-right>
@@ -81,8 +81,8 @@
 
 
 
-<ion-fab right bottom>
-    <button ion-fab color="primary" >
+<ion-fab right bottom >
+    <button ion-fab color="{{_listaDeseos.colores.colorNavbars}}" >
        <ion-icon ios="ios-add" md="md-add"></ion-icon>
 
     </button>

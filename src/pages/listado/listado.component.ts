@@ -14,7 +14,7 @@ export class ListadoComponent implements OnInit {
 
   mostrarEditar:boolean;
   color:string="primary";
-  colorFondo:string="skyBlue";
+  colorFondo:string="background-color:#B0E0E6";
   buscar:boolean=false; // Activar o desactivar barra de buscar
 
   constructor(private _listaDeseos: ListaDeseosService,

@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="primary">
+  <ion-navbar color={{_listaDeseos.colores.colorNavbars}}>
     <ion-title>{{lista.nombre}}</ion-title>
   </ion-navbar>
 </ion-header>
@@ -32,7 +32,7 @@
 
 <br><br>
 <ion-fab right bottom>
-    <button ion-fab color="primary">
+    <button ion-fab color={{_listaDeseos.colores.colorNavbars}}>
        <ion-icon ios="ios-add" md="md-add"></ion-icon>
     </button>
 
@@ -56,7 +56,7 @@
       name="nombreitem"></ion-input>
     </ion-item>
 
-    <button ion-button class="button-block" (click)="agregarItemALista()">Agregar</button>
+    <button color={{_listaDeseos.colores.colorNavbars}} ion-button class="button-block" (click)="agregarItemALista()">Agregar</button>
   </div>
 
 
