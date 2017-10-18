@@ -1,14 +1,34 @@
 <ion-header>
   <ion-navbar color={{_listaDeseos.colores.colorNavbars}}>
     <ion-title>Mis notas</ion-title>
+
+    <ion-buttons end>
+
+      <button (click)="cambiarEditar()"  ion-button icon-only>
+        <ion-icon ios="ios-create" md="md-create"></ion-icon>
+
+
+      </button>
+
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class={{_listaDeseos.colores.colorFondo}} padding>
+
+  <ion-grid *ngIf="(_listaDeseos.notas).length ==0">
+      <ion-row>
+        <ion-col class="text-center caja-vacia">
+
+          <ion-icon class="icono-grande" ios="ios-sad" md="md-sad"></ion-icon>
 
 
+          <p>No hay ninguna nota</p>
+        </ion-col >
+      </ion-row>
+  </ion-grid>
 <ion-card *ngFor="let nota of _listaDeseos.notas;let i =index;" >
-  <ion-item color="light" (click)="irDetalleNota(nota,i)">
+  <ion-item color="light" (click)="irDetalleNota(nota,i)" class="elemento">
     <h2>{{nota.titulo}}</h2>
 
   </ion-item >
@@ -22,22 +42,13 @@
 
 
 <ion-fab right bottom>
-    <button ion-fab color={{_listaDeseos.colores.colorNavbars}} >
+    <button ion-fab (click)="irAgregarNota()" color={{_listaDeseos.colores.colorNavbars}} >
        <ion-icon ios="ios-add" md="md-add"></ion-icon>
 
     </button>
 
-    <ion-fab-list side="top">
-         <button ion-fab color="secondary" (click)="irAgregarNota()">
-           <ion-icon ios="ios-add" md="md-add"></ion-icon>
-         </button>
-         <button ion-fab color="danger" (click)="cambiarEditar()" >
-           <ion-icon ios="ios-create" md="md-create"></ion-icon>
-         </button>
 
-       </ion-fab-list>
-
-  </ion-fab>
+</ion-fab>
 
 
 </ion-content>

@@ -51,6 +51,7 @@ export class AgregarComponent implements OnInit {
       return;
     }
     let lista = new Lista(this.nombreLista);
+    lista.vistaPreviaCompleta=true;
     lista.items = this.items;
 
     this._listaDeseos.agregarLista(lista);

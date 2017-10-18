@@ -8,11 +8,11 @@ export class ListaDeseosService {
   notas:Nota[]=[];
   colores={
     colorNavbars:"primary",
-    colorFondo:"fondo"
+    colorFondo:"azulClaro"
   }
 
   constructor( private storage:Storage) {
-
+    //  this.actualizarColores();
     this.cargarColores();
     this.cargarData();
    }

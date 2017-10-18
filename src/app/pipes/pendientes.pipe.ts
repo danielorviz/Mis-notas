@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {Lista,ListaItem} from '../clases/index';
+import {Lista} from '../clases/index';
 @Pipe({
   name: 'pendientes',
   pure:false

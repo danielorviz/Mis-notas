@@ -5,13 +5,18 @@
     <ion-title>Mis listas</ion-title>
 
     <ion-buttons end>
-      <button (click)="irAOpciones()" ion-button icon-only>
-        <ion-icon name="options"></ion-icon>
-      </button>
 
-      <button (click)="cambiarBuscar()" ion-button icon-only>
+      <button (click)="cambiarMostrarEditar()"  ion-button icon-only>
+        <ion-icon ios="ios-create" md="md-create"></ion-icon>
+
+
+      </button>
+      <!-- <button (click)="cambiarBuscar()" ion-button icon-only>
         <ion-icon *ngIf="!buscar" name="search"></ion-icon>
         <ion-icon *ngIf="buscar" ios="ios-close" md="md-close"></ion-icon>
+      </button> -->
+      <button (click)="irAOpciones()" ion-button icon-only>
+        <ion-icon name="options"></ion-icon>
       </button>
 
     </ion-buttons>
@@ -21,10 +26,10 @@
 
 </ion-header>
 
-<ion-content [ngClass]="{'fondo': _listaDeseos.colores.colorFondo==fondo}" padding>
+<ion-content class={{_listaDeseos.colores.colorFondo}} padding>
 
   <!-- Barra para buscar -->
-  <ion-toolbar *ngIf="buscar"color="skyBlue">
+  <ion-toolbar *ngIf="buscar" class={{_listaDeseos.colores.colorFondo}}>
     <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 
   </ion-toolbar>
@@ -34,7 +39,8 @@
     <ion-row>
       <ion-col class="text-center caja-vacia">
 
-        <ion-icon class="icono-grande" ios="ios-sunny" md="md-sunny"></ion-icon>
+        <ion-icon class="icono-grande" ios="ios-sad" md="md-sad"></ion-icon>
+
 
         <p>No hay ninguna lista</p>
       </ion-col >
@@ -82,12 +88,12 @@
 
 
 <ion-fab right bottom >
-    <button ion-fab color="{{_listaDeseos.colores.colorNavbars}}" >
+    <button ion-fab  (click)="irAgregar()" color="{{_listaDeseos.colores.colorNavbars}}" >
        <ion-icon ios="ios-add" md="md-add"></ion-icon>
 
     </button>
 
-    <ion-fab-list side="top">
+    <!-- <ion-fab-list side="top">
          <button ion-fab color="secondary" (click)="irAgregar()">
            <ion-icon ios="ios-add" md="md-add"></ion-icon>
          </button>
@@ -95,7 +101,7 @@
            <ion-icon ios="ios-create" md="md-create"></ion-icon>
          </button>
 
-       </ion-fab-list>
+       </ion-fab-list> -->
 
   </ion-fab>
 

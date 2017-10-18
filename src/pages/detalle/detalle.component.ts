@@ -78,7 +78,7 @@ export class DetalleComponent implements OnInit {
       this.nombreItem="";
       this._listaDeseos.actualizarData();
     }
-    
+
 
   }
   cambiarEstado(){
@@ -86,5 +86,19 @@ export class DetalleComponent implements OnInit {
   }
   cambiarMostrarEditar(){
     this.mostrarEditar=!this.mostrarEditar;
+  }
+
+  hayCompletadas():boolean{
+    let hay:boolean=false;
+    for (let i = 0; i < this._listaDeseos.listas.length; i++) {
+      for (let j = 0; j < this._listaDeseos.listas[i].items.length; j++) {
+          if(this._listaDeseos.listas[i].items[j].completado){
+            hay=true;
+            break;
+          }
+      }
+        this._listaDeseos.listas[i].items;
+    }
+    return hay;
   }
 }

@@ -1,6 +1,18 @@
 <ion-header>
   <ion-navbar color={{_listaDeseos.colores.colorNavbars}}>
     <ion-title>{{lista.nombre}}</ion-title>
+
+    <ion-buttons end>
+
+      <button (click)="cambiarMostrarEditar()" ion-button icon-only>
+         <ion-icon ios="ios-create" md="md-create"></ion-icon>
+
+      </button>
+      <!-- <button  ion-button icon-only>
+        <ion-icon name="options"></ion-icon>
+      </button> -->
+
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -13,51 +25,65 @@
       </ion-item>
 
 
+
     <!-- <ion-card-content> -->
       <ion-list>
         <ion-item-group reorder="true" (ionItemReorder)="reorderItems($event)">
-        <ion-item *ngFor="let item of lista.items;let i= index;"  class="elemento">
-          <ion-icon (click)="actualizar(item)" item-left *ngIf="!item.completado" ios="ios-square-outline" md="md-square-outline"></ion-icon>
-          <ion-icon (click)="actualizar(item)" item-left *ngIf="item.completado" ios="ios-checkbox-outline" md="md-checkbox-outline"></ion-icon>
-          <h2 [class.tachado]="item.completado">{{item.nombre}}</h2>
-          <ion-icon *ngIf="mostrarEditar"class="icono-papelera" ios="ios-trash" md="md-trash" (click)="borrarElementoLista(i,item.nombre)"></ion-icon>
-        </ion-item>
+
+
+
+        <div *ngFor="let item of lista.items;let i= index;"  class="elemento">
+          <ion-item *ngIf="!item.completado">
+            <ion-icon (click)="actualizar(item)" item-left ios="ios-square-outline" md="md-square-outline"></ion-icon>
+            <!-- <ion-icon (click)="actualizar(item)" item-left *ngIf="item.completado" ios="ios-checkbox-outline" md="md-checkbox-outline"></ion-icon> -->
+            <h2 [class.tachado]="item.completado">{{item.nombre}}</h2>
+            <ion-icon *ngIf="mostrarEditar"class="icono-papelera" ios="ios-trash" md="md-trash" (click)="borrarElementoLista(i,item.nombre)"></ion-icon>
+
+          </ion-item>
+        </div>
+        </ion-item-group>
+        <br>
+        <div *ngIf="mostrar">
+            <ion-item>
+
+              <ion-input autofocus type="text" [(ngModel)]="nombreItem" placeholder="Elemento"
+              name="nombreitem"></ion-input>
+            </ion-item>
+
+            <button color={{_listaDeseos.colores.colorNavbars}} ion-button class="button-block" (click)="agregarItemALista()">Agregar</button>
+            <br><br>
+          </div>
+          <hr *ngIf="hayCompletadas()">
+          <hr *ngIf="hayCompletadas()"><br>
+        <ion-item-group reorder="true" (ionItemReorder)="reorderItems($event)">
+        <div *ngFor="let item of lista.items;let i= index;"  class="elemento">
+
+          <ion-item *ngIf="item.completado">
+            <!-- <ion-icon (click)="actualizar(item)" item-left *ngIf="!item.completado" ios="ios-square-outline" md="md-square-outline"></ion-icon> -->
+            <ion-icon (click)="actualizar(item)" item-left ios="ios-checkbox-outline" md="md-checkbox-outline"></ion-icon>
+            <h2 [class.tachado]="item.completado">{{item.nombre}}</h2>
+            <ion-icon *ngIf="mostrarEditar"class="icono-papelera" ios="ios-trash" md="md-trash" (click)="borrarElementoLista(i,item.nombre)"></ion-icon>
+
+          </ion-item>
+        </div>
 
 
       </ion-item-group>
+
       </ion-list>
 
     <!-- </ion-card-content> -->
 <!-- </ion-card> -->
 
-<br><br>
-<ion-fab right bottom>
-    <button ion-fab color={{_listaDeseos.colores.colorNavbars}}>
-       <ion-icon ios="ios-add" md="md-add"></ion-icon>
+  <br><br>
+  <ion-fab right bottom>
+    <button ion-fab color="{{_listaDeseos.colores.colorNavbars}}" (click)="cambiarEstado()">
+      <ion-icon *ngIf="!mostrar"ios="ios-add" md="md-add"></ion-icon>
+       <ion-icon *ngIf="mostrar" ios="ios-remove" md="md-remove"></ion-icon>
     </button>
-
-    <ion-fab-list side="top">
-         <button ion-fab color="secondary" (click)="cambiarEstado()">
-           <ion-icon *ngIf="!mostrar"ios="ios-add" md="md-add"></ion-icon>
-            <ion-icon *ngIf="mostrar" ios="ios-remove" md="md-remove"></ion-icon>
-         </button>
-         <button ion-fab color="danger" (click)="cambiarMostrarEditar()">
-           <ion-icon ios="ios-create" md="md-create"></ion-icon>
-         </button>
-
-       </ion-fab-list>
-
   </ion-fab>
 
-<div *ngIf="mostrar">
-    <ion-item>
 
-      <ion-input type="text" [(ngModel)]="nombreItem" placeholder="Elemento"
-      name="nombreitem"></ion-input>
-    </ion-item>
-
-    <button color={{_listaDeseos.colores.colorNavbars}} ion-button class="button-block" (click)="agregarItemALista()">Agregar</button>
-  </div>
 
 
 <!-- <button (click)="borrarLista()"

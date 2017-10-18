@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Nota} from '../../app/clases/index';
-import { AlertController, NavController,NavParams } from 'ionic-angular';
+import { NavController,NavParams } from 'ionic-angular';
 import { ListaDeseosService } from '../../app/services/lista-deseos.service';
 
 @Component({

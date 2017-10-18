@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AlertController,Platform,NavController,NavParams} from 'ionic-angular';
+import {AlertController,NavController,NavParams} from 'ionic-angular';
 import { ListaDeseosService } from '../../app/services/lista-deseos.service';
 import {Nota} from '../../app/clases/index';
 
@@ -15,7 +15,7 @@ export class AgregarNotaComponent implements OnInit {
   textoNota:string="";
   textoAgregado:boolean=false;
 
-  constructor(private platform:Platform,
+  constructor(
   private _listaDeseos:ListaDeseosService,
     public navCrl:NavController,
   public navParams:NavParams,
